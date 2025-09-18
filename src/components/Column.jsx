@@ -18,8 +18,20 @@ export default function Column({ column }) {
   }
 
   function onDragOver(e) {
-    e.preventDefault();
+  e.preventDefault();
+
+  const scrollMargin = 80; // px från toppen/botten för scroll-trigger
+  const scrollSpeed = 10;  // px per event
+
+  const y = e.clientY;
+  const windowHeight = window.innerHeight;
+
+  if (y < scrollMargin) {
+    window.scrollBy({ top: -scrollSpeed, behavior: "smooth" });
+  } else if (y > windowHeight - scrollMargin) {
+    window.scrollBy({ top: scrollSpeed, behavior: "smooth" });
   }
+}
 
   const columnTasks = tasks.filter(t => t.columnId === column.id);
 

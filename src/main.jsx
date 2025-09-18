@@ -1,3 +1,4 @@
+import 'drag-drop-touch'; // <-- polyfill för touch-stöd, måste vara först
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";

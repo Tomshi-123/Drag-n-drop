@@ -1,3 +1,6 @@
+import 'drag-drop-touch'; // Polyfill för touch-stöd
+
+
 export default function Card({ task }) {
   function onDragStart(e) {
     e.dataTransfer.setData("text/plain", task.id);

@@ -10,7 +10,7 @@ export default function App() {
   return (
     <AppProvider>
       <div className="py-5">
-        <h1 className="text-center mb-4">Drag-n-drop Board</h1>
+        <h1 className="text-center mb-4">U Gotta Do What U Gotta Do</h1>
         <div className="d-flex flex-column align-items-center">
           <AddTaskForm />
           <Routes>
