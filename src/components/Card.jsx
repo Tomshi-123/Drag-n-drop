@@ -14,12 +14,12 @@ export default function Card({ task }) {
       data-task-id={task.id}
       style={{
         cursor: "grab",
-        background: "#bce4ffff",
+        background: "#2a50699d",
         border: "none",
         borderRadius: "8px",
         padding: "12px 16px",
         fontSize: "1rem",
-        color: "#343a40",
+        color: "#ffffffff",
         fontWeight: 500,
         transition: "box-shadow 0.2s"
       }}
