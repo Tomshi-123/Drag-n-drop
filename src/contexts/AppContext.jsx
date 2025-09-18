@@ -14,6 +14,7 @@ export function AppProvider({ children }) {
     return saved ? JSON.parse(saved) : [];
   });
 
+  
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
