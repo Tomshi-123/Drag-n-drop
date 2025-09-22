@@ -70,11 +70,17 @@ body {
 /* =======================
    Task card styling (Bootstrap-aware)
 ======================= */
-.task-card {
-  background: #bce4ffff !important; /* ursprunglig ljusblå */
-  color: #000 !important; /* svart text */
+.task-card, .card {
+  background: #bce4ffff !important;
+  color: #000 !important;
   cursor: grab;
   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+
+  /* Fix för drag på mobil */
+  touch-action: none;
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-drag: element;
 }
 
 .task-card:active {
@@ -96,7 +102,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0.75rem; /* smalare än standard */
+  padding: 0.5rem 0.75rem;
 }
 
 /* Text i kortet */
@@ -179,4 +185,11 @@ form.mb-4 button {
   .task-card {
     font-size: 1.05rem;
   }
+}
+
+/* =======================
+   Fix för drag på mobil
+======================= */
+.board-layout, .column-highlight-box {
+  overflow: visible !important;
 }

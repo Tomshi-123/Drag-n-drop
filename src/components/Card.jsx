@@ -1,6 +1,3 @@
-import 'drag-drop-touch'; // Polyfill för touch-stöd
-
-
 export default function Card({ task }) {
   function onDragStart(e) {
     e.dataTransfer.setData("text/plain", task.id);
@@ -19,9 +16,9 @@ export default function Card({ task }) {
         borderRadius: "8px",
         padding: "12px 16px",
         fontSize: "1rem",
-        color: "#ffffffff",
+        color: "#fff",
         fontWeight: 500,
-        transition: "box-shadow 0.2s"
+        touchAction: "none" // ← Viktigt för mobilen
       }}
     >
       {task.title}

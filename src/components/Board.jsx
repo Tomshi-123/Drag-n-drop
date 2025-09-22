@@ -1,13 +1,12 @@
-import { useAppContext } from "../contexts/AppContext.jsx";
-import  Column  from "./Column.jsx";
+import { useAppContext } from "../contexts/AppContext";
+import Column from "./Column";
 
 export default function Board() {
   const { columns } = useAppContext();
 
   return (
     <div className="container-fluid px-2">
-      <div className="row justify-content-center flex-wrap overflow-auto" style={{ gap: 24 }}>
-
+      <div className="row justify-content-center flex-wrap" style={{ gap: 24 }}>
         {columns.map(col => (
           <div
             key={col.id}
