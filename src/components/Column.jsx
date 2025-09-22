@@ -25,7 +25,7 @@ export default function Column({ column }) {
 
   return (
     <div
-      className={`bg-white rounded shadow-sm p-3 w-100${glow ? " column-border-glow" : ""}`}
+      className={`bg-white text-dark rounded shadow-sm p-3 w-100${glow ? " column-border-glow" : ""}`}
       style={{
         minHeight: 350,
         border: "3px solid #e9ecef",
