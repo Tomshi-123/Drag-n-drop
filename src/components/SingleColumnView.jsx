@@ -13,8 +13,8 @@ export default function SingleColumnView() {
 
   return (
     <div className="container d-flex flex-column align-items-center">
-      <div className="bg-white rounded shadow-sm p-5 mx-auto mt-5" style={{ maxWidth: 400, width: "100%" }}>
-        <h3 className="mb-4 text-center">{column.title}</h3>
+      <div className="bg-white rounded shadow-sm p-5 mx-auto mt-5 " style={{ maxWidth: 400, width: "100%" }}>
+        <h3 className="mb-4 text-center" style={{ color: '#000' }}>{column.title}</h3>
         {columnTasks.length === 0 && (
           <div className="text-muted text-center">Inga tasks i denna kolumn.</div>
         )}

@@ -5,11 +5,20 @@ export default function TrashBin() {
   const { removeTask } = useAppContext();
   const binRef = useRef();
 
+  function onDragEnter(e) {
+    console.log('Drag enter trashbin:', e.type); // Debug-log
+  }
+
+  function onDragOver(e) {
+    console.log('Drag over trashbin:', e.type); // Debug-log
+    e.preventDefault();
+  }
+
   function onDrop(e) {
+    console.log('Drop on trashbin:', e.type); // Debug-log
     e.preventDefault();
     const taskId = e.dataTransfer.getData("text/plain");
 
-    // Wiggle animation
     if (binRef.current) {
       binRef.current.classList.add("wiggle-pop");
       setTimeout(() => {
@@ -17,7 +26,6 @@ export default function TrashBin() {
       }, 400);
     }
 
-    // Sug-effekt på task
     const taskElem = document.querySelector(`[data-task-id="${taskId}"]`);
     if (taskElem && binRef.current) {
       const binRect = binRef.current.getBoundingClientRect();
@@ -37,16 +45,13 @@ export default function TrashBin() {
     }
   }
 
-  function onDragOver(e) {
-    e.preventDefault();
-  }
-
   return (
     <div
       ref={binRef}
       className="trash-bin mt-4 d-flex align-items-center justify-content-center"
-      onDrop={onDrop}
+      onDragEnter={onDragEnter}
       onDragOver={onDragOver}
+      onDrop={onDrop}
       style={{
         width: 48,
         height: 48,
@@ -59,7 +64,6 @@ export default function TrashBin() {
       }}
       title="Släpp här för att ta bort"
     >
-      {/* Bootstrap Trash Icon SVG */}
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#6c757d" className="bi bi-trash3" viewBox="0 0 16 16">
         <path d="M6.5 1.5A1.5 1.5 0 0 1 8 3h3.5A1.5 1.5 0 0 1 13 4.5V5h1.5a.5.5 0 0 1 0 1H14v8.5A1.5 1.5 0 0 1 12.5 16h-9A1.5 1.5 0 0 1 2 14.5V6H1.5a.5.5 0 0 1 0-1H3v-.5A1.5 1.5 0 0 1 4.5 3H8a1.5 1.5 0 0 1 1.5-1.5zm-2 3A.5.5 0 0 0 4 5v.5h8V5a.5.5 0 0 0-.5-.5h-7zM3 6v8.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V6H3zm3.5 2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5zm3 0a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5z"/>
       </svg>
